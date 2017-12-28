@@ -17,18 +17,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
     
-//    @Autowired
-//    private ShaPasswordEncoder shaPasswordEncoder;
+    @Autowired
+    private ShaPasswordEncoder shaPasswordEncoder;
 
     @Override
     public UserDTO save(String name, String password) {
         User user = new User();
         user.setName(name);
-//        user.setPassword(shaPasswordEncoder.encodePassword(name + password, null));
+        user.setPassword(shaPasswordEncoder.encodePassword(name + password, null));
         user = userRepository.save(user);
         
-//        return userMapper.toDTO(user);
-        return new UserDTO();
+        return userMapper.toDTO(user);
     }
     
 }
