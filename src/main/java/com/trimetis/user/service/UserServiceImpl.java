@@ -29,5 +29,10 @@ public class UserServiceImpl implements UserService {
         
         return userMapper.toDTO(user);
     }
+
+    @Override
+    public UserDTO save(UserDTO userDTO) {
+        return save(userDTO.getName(), userDTO.getPassword());
+    }
     
 }
