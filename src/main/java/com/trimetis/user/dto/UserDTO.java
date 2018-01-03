@@ -5,6 +5,14 @@ public class UserDTO {
     private String name;
     private String password;
 
+    public UserDTO() {
+    }
+
+    public UserDTO(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+    
     public String getName() {
         return name;
     }
